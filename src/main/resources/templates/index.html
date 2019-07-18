@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--使用thymeleaf模版引擎-->
+</head>
+<body>
+<!--在jsp中，使用EL从域中获取数据，使用JSTL去处理-->
+<!--在html页面中，使用模版引擎可以从域对象中获取数据
+    前后端分离
+-->
+<div th:text="${hello}">你好</div>
+<div th:text="${hello}"></div>
+<p th:text="${list}"></p>
+
+<table border="1px solid red">
+    <tr>
+        <th>NAME</th>
+    </tr>
+    <tr th:each="prod : ${list}">
+        <td th:text="${prod}"></td>
+    </tr>
+</table>
+
+<!--隔行换色：原生js  Jquery 连缀-->
+<hr />
+<table border="1px solid red">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Score</th>
+    </tr>
+    <tr th:each="user : ${users.list}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.score}"></td>
+    </tr>
+</table>
+<hr />
+<!--PageInfo的其他信息-->
+<p th:text="${users.pageNum}"></p>
+<p th:text="${users.pageSize}"></p>
+<p th:text="${users.pages}"> </p>
+</body>
+</html>
